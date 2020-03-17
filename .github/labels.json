@@ -12,7 +12,7 @@
       "conditions": [
         {
           "type": "titleMatches",
-          "pattern": "[BUG]"
+          "pattern": "^([BUG])"
         },
         {
           "type": "isOpen"
