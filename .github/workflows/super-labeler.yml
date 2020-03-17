@@ -1,22 +1,25 @@
-name: PR Labeler
+name: labeler
 on:
+  issues: 
+    types: [opened, edited, closed, reopened]
   pull_request:
     types: [opened, edited, closed, reopened, ready_for_review, synchronize]
 
 jobs:
   labeler:
     runs-on: ubuntu-latest
-    name: Label issues and pull requests
+    name: label issues and pull requests
     steps:
-      - name: Check out repository
+      - name: check-out-repository
         uses: actions/checkout@v2
 
-      - name: Labeler
+      - name: labeler
         uses: IvanFon/super-labeler-action@v1
         with:
           github-token: '${{ secrets.GITHUB_TOKEN }}'
 
-      - name: Label the PR size
+      - name: pr-labeler-size
+        if: github.event_name == 'pull_request'
         uses: codelytv/pr-size-labeler@v1
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -26,7 +29,8 @@ jobs:
           l_max_size: '1000'
           fail_if_xl: 'false'
 
-      - name: Package Labeler
+      - name: pr-labeler-packages
+        if: github.event_name == 'pull_request'
         uses: paulfantom/periodic-labeler@master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
