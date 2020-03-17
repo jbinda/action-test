@@ -4,25 +4,26 @@ on: issue_comment
 jobs:
   comment:
     runs-on: ubuntu-latest
+    env:
+      COMMAND: "/respost test$"
     steps:
       - uses: rytswd/comvent@v0.1.0
         id: comvent
         with:
-          keyword: "/respost test$" # This is the regex string to match against
-          
-      - name: echo
-        run: |
-          echo steps.comvent.outputs.comvent
-          echo $steps.comvent.outputs.comvent
-          echo $COMMAND
-        env:
-          COMMAND: ${{steps.comvent.outputs.comvent}}
+          keyword: $COMMAND # This is the regex string to match against
 
       - uses: rytswd/respost@v0.1.0
         with:
-          title: Respost as a Bot - response to command
-          body: "Hello, thank you for calling me with `/respost test` command! $steps.comvent.outputs.comvent"
-        if: steps.comvent.outputs.comvent != ''
+          title: Respost test
+          body: "Hello, thank you for calling me with `$COMMAND` command!"
+        if: $COMVENT_OUTPUT != ''
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          COMMAND: ${{steps.comvent.outputs.comvent}}
+          COMVENT_OUTPUT: ${{steps.comvent.outputs.comvent}}
+
+      - name: echo-variables
+        run: |
+          echo $COMMAND
+          echo $COMVENT_OUTPUT
+        env:
+          COMVENT_OUTPUT: ${{steps.comvent.outputs.comvent}}
