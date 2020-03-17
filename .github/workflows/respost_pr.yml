@@ -1,6 +1,8 @@
 
 name: Respost - write comment to new pull request event
-on: pull_request
+on:
+  pull_request:
+    types: [opened]
 
 jobs:
   comment:
