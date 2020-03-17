@@ -1,5 +1,0 @@
-exclude: 
-  - development
-  - master
-  - gate*
-delete_closed_pr: true
