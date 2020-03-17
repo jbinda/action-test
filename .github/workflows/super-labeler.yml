@@ -8,16 +8,16 @@ jobs:
     runs-on: ubuntu-latest
     name: Label issues and pull requests
     steps:
-      - uses: actions/checkout@v2
-      - uses: IvanFon/super-labeler-action@v1
+      - name: Check out repository
+        uses: actions/checkout@v2
+
+      - name: Labeler
+        uses: IvanFon/super-labeler-action@v1
         with:
           github-token: '${{ secrets.GITHUB_TOKEN }}'
 
-  size-labeler:
-    runs-on: ubuntu-latest
-    name: Label the PR size
-    steps:
-      - uses: codelytv/pr-size-labeler@v1
+      - name: Label the PR size
+        uses: codelytv/pr-size-labeler@v1
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           xs_max_size: '10'
@@ -26,10 +26,8 @@ jobs:
           l_max_size: '1000'
           fail_if_xl: 'false'
 
-  package-labeler:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: paulfantom/periodic-labeler@master
+      - name: Package Labeler
+        uses: paulfantom/periodic-labeler@master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_REPOSITORY: ${{ github.repository }}
