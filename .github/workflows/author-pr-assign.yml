@@ -1,0 +1,12 @@
+name: pr-author-assigner
+on:
+  pull_request:
+    types: [opened]
+
+jobs:
+  assigner:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: samspills/assign-pr-to-author@v1.0
+        with:
+          repo-token: '${{ secrets.GITHUB_TOKEN }}'
