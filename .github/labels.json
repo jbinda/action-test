@@ -1,0 +1,34 @@
+{
+  "labels": {
+    "wip": {
+      "name": "WIP",
+      "colour": "#ffffaa",
+      "description": "Work in progress"
+    }
+  },
+  "issue": {
+    "wip": {
+      "requires": 2,
+      "conditions": [
+        {
+          "type": "titleMatches",
+          "pattern": "[BUG]"
+        },
+        {
+          "type": "isOpen"
+        }
+      ]
+    }
+  },
+  "pr": {
+    "wip": {
+      "requires": 1,
+      "conditions": [
+        {
+          "type": "titleMatches",
+          "pattern": "^(wip|WIP|Wip|[WIP]):"
+        }
+      ]
+    }
+  }
+}
