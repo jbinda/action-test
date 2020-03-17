@@ -16,7 +16,7 @@ jobs:
         with:
           title: Respost test
           body: "Hello, thank you for calling me with `$COMMAND` command!"
-        if: ${{ COMVENT_OUTPUT }} != ''
+        if: ${{ env.COMVENT_OUTPUT }} != ''
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           COMVENT_OUTPUT: ${{ steps.comvent.outputs.comvent }}
