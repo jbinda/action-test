@@ -1,0 +1,26 @@
+name: Respost - write comment to new issue/pr event
+on:
+  issues:
+    types: [opened]
+  pull_request:
+    types: [opened]
+
+jobs:
+  comment:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: rytswd/respost@v0.1.0
+        if: github.event_name == 'issues'
+        with:
+          title: 'Posting new issue'
+          body: 'Hello @${{ github.actor }}, thank you for posting an issue !'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - uses: rytswd/respost@v0.1.0
+        if: github.event_name == 'pull_request'
+        with:
+          title: 'Posting new pull request'
+          body: 'Hello @${{ github.actor }}, thank you for posting an pull request !'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
