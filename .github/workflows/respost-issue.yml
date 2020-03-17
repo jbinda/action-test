@@ -7,7 +7,6 @@ jobs:
     steps:
       - uses: rytswd/respost@v0.1.0
         with:
-          title: Respost Custom Title from step 1, for Issue
           body: 'Hello @${{ github.actor }}, thank you for posting an issue !'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
