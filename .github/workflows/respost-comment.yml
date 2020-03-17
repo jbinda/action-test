@@ -10,12 +10,12 @@ jobs:
       - uses: rytswd/comvent@v0.1.0
         id: comvent
         with:
-          keyword: $COMMAND # This is the regex string to match against
+          keyword: ${{ env.COMMAND }} # This is the regex string to match against
 
       - uses: rytswd/respost@v0.1.0
         with:
           title: Respost test
-          body: "Hello, thank you for calling me with `$COMMAND` command!"
+          body: "Hello, thank you for calling me with `${{ env.COMMAND }}` command!"
         if: ${{ env.COMVENT_OUTPUT }} != ''
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
