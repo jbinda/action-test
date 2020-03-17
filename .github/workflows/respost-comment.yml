@@ -16,14 +16,14 @@ jobs:
         with:
           title: Respost test
           body: "Hello, thank you for calling me with `$COMMAND` command!"
-        if: $COMVENT_OUTPUT != ''
+        if: ${{ COMVENT_OUTPUT }} != ''
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          COMVENT_OUTPUT: ${{steps.comvent.outputs.comvent}}
+          COMVENT_OUTPUT: ${{ steps.comvent.outputs.comvent }}
 
       - name: echo-variables
         run: |
           echo $COMMAND
           echo $COMVENT_OUTPUT
         env:
-          COMVENT_OUTPUT: ${{steps.comvent.outputs.comvent}}
+          COMVENT_OUTPUT: ${{ steps.comvent.outputs.comvent }}
