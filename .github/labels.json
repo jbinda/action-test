@@ -12,10 +12,11 @@
       "conditions": [
         {
           "type": "titleMatches",
-          "pattern": "^([BUG])"
+          "pattern": "^(BUG|bug)"
         },
         {
-          "type": "isOpen"
+          "type": "isOpen",
+          "value": true
         }
       ]
     }
