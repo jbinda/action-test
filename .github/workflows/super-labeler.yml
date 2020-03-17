@@ -1,9 +1,9 @@
 name: labeler
 on:
   issues: 
-    types: [opened, edited, closed, reopened]
+    types: [opened, edited, reopened]
   pull_request:
-    types: [opened, edited, closed, reopened, ready_for_review, synchronize]
+    types: [opened, edited, reopened, ready_for_review, synchronize]
 
 jobs:
   labeler:
