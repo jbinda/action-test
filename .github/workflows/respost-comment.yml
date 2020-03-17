@@ -12,9 +12,7 @@ jobs:
       - uses: rytswd/respost@v0.1.0
         with:
           title: Respost as a Bot - response to command
-          body: "Hello, thank you for calling me with `/respost test` command!"
+          body: "Hello, thank you for calling me with `/respost test` command! $steps.comvent.outputs.comvent"
         if: steps.comvent.outputs.comvent != ''
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          echo steps.comvent.outputs.comvent
