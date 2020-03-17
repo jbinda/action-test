@@ -4,10 +4,65 @@
       "name": "WIP",
       "colour": "#ffffaa",
       "description": "Work in progress"
+    },
+    "bug": {
+      "name": "bug",
+      "colour": "#d73a4a",
+      "description": "Something isn't working"
+    },
+    "fix": {
+      "name": "bugfix",
+      "colour": "#e825aa",
+      "description": "PR with bugfix"
+    },
+    "feat": {
+      "name": "enhancement",
+      "colour": "#a2eeef",
+      "description": "New feature or request"
+    },
+    "refactor": {
+      "name": "refactor",
+      "colour": "#42d1c5",
+      "description": "Changes existing feature"
+    },
+    "chore": {
+      "name": "chore",
+      "colour": "#ffd4cc",
+      "description": "Package updates etc"
+    },
+    "docs": {
+      "name": "documentation",
+      "colour": "#23c4ff",
+      "description": "Improvements or additions to documentation"
+    },
+    "tests": {
+      "name": "tests",
+      "colour": "#23c4ff",
+      "description": "All related to testing"
+    },
+    "perf": {
+      "name": "performance",
+      "colour": "#23c4ff",
+      "description": "Performance related changes"
+    },
+    "ci": {
+      "name": "CI",
+      "colour": "#23c4ff",
+      "description": "Continous Integration related changes"
+    },
+    "buil": {
+      "name": "build",
+      "colour": "#23c4ff",
+      "description": "Affects build process changes"
+    },
+    "revert": {
+      "name": "revert",
+      "colour": "#23c4ff",
+      "description": "Reverts previous changes"
     }
   },
   "issue": {
-    "wip": {
+    "bug": {
       "requires": 2,
       "conditions": [
         {
@@ -28,6 +83,51 @@
         {
           "type": "titleMatches",
           "pattern": "^(wip|WIP|Wip|[WIP]):"
+        }
+      ]
+    },
+    "fix": {
+      "requires": 1,
+      "conditions": [
+        {
+          "type": "branchMatches",
+          "pattern": "^fix\\/"
+        }
+      ]
+    },
+    "feat": {
+      "requires": 1,
+      "conditions": [
+        {
+          "type": "branchMatches",
+          "pattern": "^feat\\/"
+        }
+      ]
+    },
+    "refactor": {
+      "requires": 1,
+      "conditions": [
+        {
+          "type": "branchMatches",
+          "pattern": "^refactor\\/"
+        }
+      ]
+    },
+    "chore": {
+      "requires": 1,
+      "conditions": [
+        {
+          "type": "branchMatches",
+          "pattern": "^chore\\/"
+        }
+      ]
+    },
+    "docs": {
+      "requires": 1,
+      "conditions": [
+        {
+          "type": "branchMatches",
+          "pattern": "^docs\\/"
         }
       ]
     }
