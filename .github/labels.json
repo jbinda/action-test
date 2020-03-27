@@ -67,7 +67,7 @@
       "conditions": [
         {
           "type": "titleMatches",
-          "pattern": "^(bug|\[bug)/i"
+          "pattern": "^(bug|\\[bug)"
         },
         {
           "type": "isOpen",
@@ -80,7 +80,7 @@
       "conditions": [
         {
           "type": "titleMatches",
-          "pattern": "^(wip|\[wip)/i"
+          "pattern": "^(wip|\\[wip)"
         },
         {
           "type": "isOpen",
