@@ -67,7 +67,20 @@
       "conditions": [
         {
           "type": "titleMatches",
-          "pattern": "^(BUG|bug)"
+          "pattern": "/^(bug|\\[bug)/i"
+        },
+        {
+          "type": "isOpen",
+          "value": true
+        }
+      ]
+    },
+    "wip": {
+      "requires": 2,
+      "conditions": [
+        {
+          "type": "titleMatches",
+          "pattern": "/^(wip|\\[wip)/i"
         },
         {
           "type": "isOpen",
