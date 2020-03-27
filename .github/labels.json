@@ -59,6 +59,41 @@
       "name": "revert",
       "colour": "#23c4ff",
       "description": "Reverts previous changes"
+    },
+    "mobile": {
+      "name": "Mobile",
+      "colour": "#23c4ff",
+      "description": "Mobile"
+    },
+    "ios": {
+      "name": "iOS",
+      "colour": "#23c4ff",
+      "description": "iOS"
+    },
+    "android": {
+      "name": "Android",
+      "colour": "#23c4ff",
+      "description": "Android"
+    },
+    "web": {
+      "name": "Web",
+      "colour": "#23c4ff",
+      "description": "Web"
+    },
+    "desktop": {
+      "name": "Desktop",
+      "colour": "#23c4ff",
+      "description": "Desktop"
+    },
+    "api": {
+      "name": "API",
+      "colour": "#23c4ff",
+      "description": "API"
+    },
+    "automation": {
+      "name": "automation",
+      "colour": "#23c4ff",
+      "description": "automation"
     }
   },
   "issue": {
@@ -141,6 +176,69 @@
         {
           "type": "branchMatches",
           "pattern": "^docs\\/"
+        }
+      ]
+    },
+    "mobile": {
+      "requires": 1,
+      "conditions": [
+        {
+          "type": "fileMatches",
+          "pattern": "packages/mobile/**/*"
+        }
+      ]
+    },
+    "ios": {
+      "requires": 1,
+      "conditions": [
+        {
+          "type": "fileMatches",
+          "pattern": "packages/mobile/ios/**/*"
+        }
+      ]
+    },
+    "android": {
+      "requires": 1,
+      "conditions": [
+        {
+          "type": "fileMatches",
+          "pattern": "packages/mobile/android/**/*"
+        }
+      ]
+    },
+    "web": {
+      "requires": 1,
+      "conditions": [
+        {
+          "type": "fileMatches",
+          "pattern": "packages/mobile/web/**/*"
+        }
+      ]
+    },
+    "desktop": {
+      "requires": 1,
+      "conditions": [
+        {
+          "type": "fileMatches",
+          "pattern": "packages/mobile/desktop/**/*"
+        }
+      ]
+    },
+    "api": {
+      "requires": 1,
+      "conditions": [
+        {
+          "type": "fileMatches",
+          "pattern": "packages/mobile/api/**/*"
+        }
+      ]
+    },
+    "automation": {
+      "requires": 1,
+      "conditions": [
+        {
+          "type": "fileMatches",
+          "pattern": ".github/**/*"
         }
       ]
     }

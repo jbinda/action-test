@@ -28,11 +28,3 @@ jobs:
           m_max_size: '500'
           l_max_size: '1000'
           fail_if_xl: 'false'
-
-      - name: pr-labeler-packages
-        if: github.event_name == 'pull_request'
-        uses: paulfantom/periodic-labeler@master
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GITHUB_REPOSITORY: ${{ github.repository }}
-          LABEL_MAPPINGS_FILE: .github/labeler.yml
