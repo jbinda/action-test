@@ -215,7 +215,7 @@
       "conditions": [
         {
           "type": "filesMatch",
-          "glob": "packages/mobile/web/**/*"
+          "glob": "packages/web/**/*"
         }
       ]
     },
@@ -224,7 +224,7 @@
       "conditions": [
         {
           "type": "filesMatch",
-          "glob": "packages/mobile/desktop/**/*"
+          "glob": "packages/desktop/**/*"
         }
       ]
     },
@@ -233,7 +233,7 @@
       "conditions": [
         {
           "type": "filesMatch",
-          "glob": "packages/mobile/api/**/*"
+          "glob": "packages/api/**/*"
         }
       ]
     },
