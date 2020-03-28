@@ -198,11 +198,15 @@
       ]
     },
     "android": {
-      "requires": 1,
+      "requires": 2,
       "conditions": [
         {
           "type": "filesMatch",
-          "glob": "packages/mobile/android/**/*"
+          "glob": "packages/mobile/android/**/*",
+        },
+        {
+          "type": "isOpen",
+          "value": true
         }
       ]
     },
