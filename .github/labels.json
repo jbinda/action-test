@@ -220,7 +220,7 @@
       "conditions": [
         {
           "type": "filesMatch",
-          "glob": "packages/mobile/desktop/**/*"
+          "glob": "*/packages/mobile/desktop/**/*"
         }
       ]
     },
