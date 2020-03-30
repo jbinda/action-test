@@ -184,7 +184,7 @@
       "conditions": [
         {
           "type": "filesMatch",
-          "glob": "packages/mobile/**/*"
+          "glob": "packages/mobile/*"
         }
       ]
     },
