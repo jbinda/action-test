@@ -130,7 +130,7 @@
       "conditions": [
         {
           "type": "titleMatches",
-          "pattern": "^(wip|WIP|Wip|[WIP]):"
+          "pattern": "/^(wip|\\[wip)/i"
         }
       ]
     },
