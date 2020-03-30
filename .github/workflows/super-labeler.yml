@@ -16,7 +16,7 @@ jobs:
       - name: labeler
         uses: jbinda/super-labeler-action@develop
         with:
-          github-token: '${{ secrets.GITHUB_TOKEN }}'
+          GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
 
       - name: pr-labeler-size
         if: github.event_name == 'pull_request'
