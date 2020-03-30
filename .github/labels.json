@@ -215,7 +215,7 @@
       "conditions": [
         {
           "type": "filesMatch",
-          "glob": "*"
+          "glob": "packages/web/**/*"
         }
       ]
     },
