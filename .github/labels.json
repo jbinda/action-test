@@ -102,7 +102,7 @@
       "conditions": [
         {
           "type": "titleMatches",
-          "pattern": "^(bug|\\[bug)"
+          "pattern": "/^(bug|\\[bug)/i"
         },
         {
           "type": "isOpen",
@@ -115,7 +115,7 @@
       "conditions": [
         {
           "type": "titleMatches",
-          "pattern": "^(wip|\\[wip)"
+          "pattern": "/^(wip|\\[wip)/i"
         },
         {
           "type": "isOpen",
