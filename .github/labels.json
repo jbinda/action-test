@@ -183,8 +183,8 @@
       "requires": 1,
       "conditions": [
         {
-          "type": "fileMatches",
-          "pattern": "packages/mobile/**/*"
+          "type": "filesMatch",
+          "glob": "packages/mobile/**/*"
         }
       ]
     },
@@ -192,17 +192,21 @@
       "requires": 1,
       "conditions": [
         {
-          "type": "fileMatches",
-          "pattern": "packages/mobile/ios/**/*"
+          "type": "filesMatch",
+          "glob": "packages/mobile/ios/**/*"
         }
       ]
     },
     "android": {
-      "requires": 1,
+      "requires": 2,
       "conditions": [
         {
-          "type": "fileMatches",
-          "pattern": "packages/mobile/android/**/*"
+          "type": "filesMatch",
+          "glob": "packages/mobile/android/**/*"
+        },
+        {
+          "type": "isOpen",
+          "value": true
         }
       ]
     },
@@ -210,8 +214,8 @@
       "requires": 1,
       "conditions": [
         {
-          "type": "fileMatches",
-          "pattern": "packages/mobile/web/**/*"
+          "type": "filesMatch",
+          "glob": "*"
         }
       ]
     },
@@ -219,8 +223,8 @@
       "requires": 1,
       "conditions": [
         {
-          "type": "fileMatches",
-          "pattern": "packages/mobile/desktop/**/*"
+          "type": "filesMatch",
+          "glob": "packages/desktop/**/*"
         }
       ]
     },
@@ -228,8 +232,8 @@
       "requires": 1,
       "conditions": [
         {
-          "type": "fileMatches",
-          "pattern": "packages/mobile/api/**/*"
+          "type": "filesMatch",
+          "glob": "packages/api/**/*"
         }
       ]
     },
@@ -237,8 +241,8 @@
       "requires": 1,
       "conditions": [
         {
-          "type": "fileMatches",
-          "pattern": ".github/**/*"
+          "type": "filesMatch",
+          "glob": ".github/**/*"
         }
       ]
     }
