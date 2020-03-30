@@ -102,7 +102,7 @@
       "conditions": [
         {
           "type": "titleMatches",
-          "pattern": "^(bug|BUG)"
+          "pattern": "/^bug/i"
         },
         {
           "type": "isOpen",
