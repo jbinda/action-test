@@ -9,7 +9,7 @@ jobs:
       TEST_COMMAND: "/test"
       TEST_COMMAND_REGEXP: "^/test$"
       SYNC_COMMAND: "/sync"
-      SYNCCOMMAND_REGEXP: "^/sync$"
+      SYNC_COMMAND_REGEXP: "^/sync$"
       CLOSE_COMMAND: "/close"
       CLOSE_COMMAND_REGEXP: "^/close$"
     steps:
