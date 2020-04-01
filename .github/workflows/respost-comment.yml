@@ -6,9 +6,9 @@ jobs:
     runs-on: ubuntu-latest
     # available commands to listen
     env:
-      TEST_COMMAND: "/test$"
-      SYNC_COMMAND: "/sync$"
-      CLOSE_COMMAND: "/close$"
+      TEST_COMMAND: "^/test$"
+      SYNC_COMMAND: "^/sync$"
+      CLOSE_COMMAND: "^/close$"
     steps:
       # configure comvent to listen on declared command
       - uses: rytswd/comvent@v0.1.0
@@ -51,17 +51,3 @@ jobs:
         if: steps.close.outputs.comvent != ''
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: echo-variables
-        run: |
-          echo $TEST_COMMAND
-          echo $SYNC_COMMAND
-          echo $CLOSE_COMMAND
-          echo $TEST_COMMAND_OUTPUT
-          echo $SYNC_COMMAND_OUTPUT
-          echo $CLOSE_COMMAND_OUTPUT
-        env:
-          TEST_COMMAND_OUTPUT: ${{ steps.test.outputs.comvent }}
-          SYNC_COMMAND_OUTPUT: ${{ steps.sync.outputs.comvent }}
-          CLOSE_COMMAND_OUTPUT: ${{ steps.close.outputs.comvent }}
-
