@@ -32,28 +32,25 @@ jobs:
         with:
           title: Execute `${{ env.TEST_COMMAND }}` command
           body: "Hello, thank you for calling me with `${{ env.TEST_COMMAND }}` command!"
-        if: ${{ env.TEST_COMMAND_OUTPUT }} != ''
+        if: steps.test.outputs.comvent != ''
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          TEST_COMMAND_OUTPUT: ${{ steps.test.outputs.comvent }}
 
       - uses: rytswd/respost@v0.1.0
         with:
           title: Execute `${{ env.SYNC_COMMAND }}` command
           body: "Issue will be synced with origin and set to proper state"
-        if: ${{ env.SYNC_COMMAND_OUTPUT }} != ''
+        if: steps.sync.outputs.comvent != ''
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          SYNC_COMMAND_OUTPUT: ${{ steps.sync.outputs.comvent }}
 
       - uses: rytswd/respost@v0.1.0
         with:
           title: Execute `${{ env.CLOSE_COMMAND }}` command
           body: "Issue will be closed"
-        if: ${{ env.CLOSE_COMMAND_OUTPUT }} != ''
+        if: steps.close.outputs.comvent != ''
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          CLOSE_COMMAND_OUTPUT: ${{ steps.close.outputs.comvent }}
 
       - name: echo-variables
         run: |
