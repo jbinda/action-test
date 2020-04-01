@@ -30,7 +30,7 @@ jobs:
 
       - uses: rytswd/respost@v0.1.0
         with:
-          title: Execute `${{ env.TEST_COMMAND }}` command
+          title: Execute `/test` command
           body: "Hello, thank you for calling me with `${{ env.TEST_COMMAND }}` command!"
         if: steps.test.outputs.comvent != ''
         env:
@@ -38,7 +38,7 @@ jobs:
 
       - uses: rytswd/respost@v0.1.0
         with:
-          title: Execute `${{ env.SYNC_COMMAND }}` command
+          title: Execute `/sync` command
           body: "Issue will be synced with origin and set to proper state"
         if: steps.sync.outputs.comvent != ''
         env:
@@ -46,7 +46,7 @@ jobs:
 
       - uses: rytswd/respost@v0.1.0
         with:
-          title: Execute `${{ env.CLOSE_COMMAND }}` command
+          title: Execute `/close` command
           body: "Issue will be closed"
         if: steps.close.outputs.comvent != ''
         env:
