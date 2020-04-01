@@ -4,26 +4,55 @@ on: issue_comment
 jobs:
   comment:
     runs-on: ubuntu-latest
+    # available commands to listen
     env:
-      COMMAND: "/respost test$"
+      TEST_COMMAND: "^/test"
+      SYNC_COMMAND: "^/sync"
+      CLOSE_COMMAND: "^/close"
     steps:
+      # configure comvent to listen on declared command
       - uses: rytswd/comvent@v0.1.0
-        id: comvent
+        id: test
         with:
-          keyword: ${{ env.COMMAND }} # This is the regex string to match against
+          keyword: ${{ env.TEST_COMMAND }}
+
+      - uses: rytswd/comvent@v0.1.0
+        id: sync
+        with:
+          keyword: ${{ env.SYNC_COMMAND }}
+
+      - uses: rytswd/comvent@v0.1.0
+        id: close
+        with:
+          keyword: ${{ env.CLOSE_COMMAND }}
+
+      # respost section to trigger action depending on used command
 
       - uses: rytswd/respost@v0.1.0
         with:
-          title: Respost test
-          body: "Hello, thank you for calling me with `${{ env.COMMAND }}` command!"
-        if: ${{ env.COMVENT_OUTPUT }} != ''
+          title: Execute `${{ env.TEST_COMMAND }}` command
+          body: "Hello, thank you for calling me with `${{ env.TEST_COMMAND }}` command!"
+        if: ${{ env.TEST_COMMAND_OUTPUT }} != ''
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          COMVENT_OUTPUT: ${{ steps.comvent.outputs.comvent }}
+          TEST_COMMAND_OUTPUT: ${{ steps.test.outputs.comvent }}
 
-      - name: echo-variables
-        run: |
-          echo $COMMAND
-          echo $COMVENT_OUTPUT
+      - uses: rytswd/respost@v0.1.0
+        with:
+          title: Execute `${{ env.SYNC_COMMAND }}` command
+          body: "Issue will be synced with origin and set to proper state"
+        if: ${{ env.SYNC_COMMAND_OUTPUT }} != ''
         env:
-          COMVENT_OUTPUT: ${{ steps.comvent.outputs.comvent }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SYNC_COMMAND_OUTPUT: ${{ steps.sync.outputs.comvent }}
+
+      - uses: rytswd/respost@v0.1.0
+        with:
+          title: Execute `${{ env.CLOSE_COMMAND }}` command
+          body: "Issue will be closed"
+        if: ${{ env.CLOSE_COMMAND_OUTPUT }} != ''
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          CLOSE_COMMAND_OUTPUT: ${{ steps.close.outputs.comvent }}
+
+
