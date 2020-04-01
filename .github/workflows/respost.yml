@@ -17,14 +17,14 @@ jobs:
       - uses: rytswd/respost@v0.1.0
         if: github.event_name == 'issues'
         with:
-          title: 'Posting new issue'
+          title: 'Welcome note'
           body: |
             Hello @${{ github.actor }}, thank you for posting an issue !
 
             Write a comment with below command to trigger action:
-            * ${{ env.TEST_COMMAND }} 
-            * ${{ env.SYNC_COMMAND }} 
-            * ${{ env.CLOSE_COMMAND }} 
+            * `${{ env.TEST_COMMAND }}`
+            * `${{ env.SYNC_COMMAND }}`
+            * `${{ env.CLOSE_COMMAND }}`
 
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

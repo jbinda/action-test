@@ -6,31 +6,34 @@ jobs:
     runs-on: ubuntu-latest
     # available commands to listen
     env:
-      TEST_COMMAND: "^/test$"
-      SYNC_COMMAND: "^/sync$"
-      CLOSE_COMMAND: "^/close$"
+      TEST_COMMAND: "/test"
+      TEST_COMMAND_REGEXP: "^/test$"
+      SYNC_COMMAND: "/sync"
+      SYNCCOMMAND_REGEXP: "^/sync$"
+      CLOSE_COMMAND: "/close"
+      CLOSE_COMMAND_REGEXP: "^/close$"
     steps:
       # configure comvent to listen on declared command
       - uses: rytswd/comvent@v0.1.0
         id: test
         with:
-          keyword: ${{ env.TEST_COMMAND }}
+          keyword: ${{ env.TEST_COMMAND_REGEXP }}
 
       - uses: rytswd/comvent@v0.1.0
         id: sync
         with:
-          keyword: ${{ env.SYNC_COMMAND }}
+          keyword: ${{ env.SYNC_COMMAND_REGEXP}}
 
       - uses: rytswd/comvent@v0.1.0
         id: close
         with:
-          keyword: ${{ env.CLOSE_COMMAND }}
+          keyword: ${{ env.CLOSE_COMMAND_REGEXP}}
 
       # respost section to trigger action depending on used command
 
       - uses: rytswd/respost@v0.1.0
         with:
-          title: Execute `/test` command
+          title: Execute `${{ env.TEST_COMMAND}}` command
           body: "Hello, thank you for calling me with `${{ env.TEST_COMMAND }}` command!"
         if: steps.test.outputs.comvent != ''
         env:
@@ -38,7 +41,7 @@ jobs:
 
       - uses: rytswd/respost@v0.1.0
         with:
-          title: Execute `/sync` command
+          title: Execute `${{ env.SYNC_COMMAND }}` command
           body: "Issue will be synced with origin and set to proper state"
         if: steps.sync.outputs.comvent != ''
         env:
@@ -46,7 +49,7 @@ jobs:
 
       - uses: rytswd/respost@v0.1.0
         with:
-          title: Execute `/close` command
+          title: Execute `${{ env.CLOSE_COMMAND }}` command
           body: "Issue will be closed"
         if: steps.close.outputs.comvent != ''
         env:
