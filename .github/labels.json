@@ -95,6 +95,21 @@
       "name": "automation",
       "colour": "#23c4ff",
       "description": "automation"
+    },
+    "no-activity": {
+      "name": "no-activity",
+      "colour": "#ededed",
+      "description": "Stale issues"
+    },
+    "skip-crawl": {
+      "name": "skip-crawl",
+      "colour": "#ededed",
+      "description": "Skip crawl this issue"
+    },
+    "skip-labeling": {
+      "name": "skip-labeling",
+      "colour": "#ededed",
+      "description": "Skip labeling this issue"
     }
   },
   "issue": {
