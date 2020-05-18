@@ -1,4 +1,5 @@
 {
+  "skip_labeling": "skip-labeling",
   "labels": {
     "wip": {
       "name": "WIP",
