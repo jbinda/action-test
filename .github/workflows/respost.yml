@@ -8,12 +8,24 @@ on:
 jobs:
   comment:
     runs-on: ubuntu-latest
+    # available commands to listen
+    env:
+      TEST_COMMAND: "/test"
+      SYNC_COMMAND: "/sync"
+      CLOSE_COMMAND: "/close"
     steps:
       - uses: rytswd/respost@v0.1.0
         if: github.event_name == 'issues'
         with:
-          title: 'Posting new issue'
-          body: 'Hello @${{ github.actor }}, thank you for posting an issue !'
+          title: 'Welcome note'
+          body: |
+            Hello @${{ github.actor }}, thank you for posting an issue !
+
+            Write a comment with below command to trigger action:
+            * `${{ env.TEST_COMMAND }}`
+            * `${{ env.SYNC_COMMAND }}`
+            * `${{ env.CLOSE_COMMAND }}`
+
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 

@@ -1,0 +1,21 @@
+name: Issue Crawler - run sync issues from origin repos
+on:
+  schedule:
+    # * is a special character in YAML so you have to quote this string
+    - cron:  '*/15 * * * *' # every 15 min
+              # '0 1 * * 1,3,5' "At 01:00 on Monday, Wednesday, and Friday.""
+              # '0 1 * * *' "At 01:00"
+              # '0 0 * * *' "At 00:00"
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    name: sync issues from origin repos
+    steps:
+      - name: check-out-repository
+        uses: actions/checkout@v2
+
+      - name: crawler
+        uses: jbinda/issue-crawler-action@develop
+        with:
+          GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
